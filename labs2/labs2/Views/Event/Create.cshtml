@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red">@ViewBag.Error</p>
+}
+
+<form action="/Event/Create" method="post">
+    <label>Ime</label>
+    <br />
+    <input type="text" name="Ime" />
+
+    <br />
+
+    <label>Lokacija</label>
+    <br />
+    <input type="text" name="Lokacija" />
+
+    <br /><br />
+
+    <button type="submit">Create</button>
+</form>
+
+<br />
+<a href="/Event/Index">Back</a>

@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    thead {
+        font-weight: bolder;
+    }
+
+    td {
+        width: 100px;
+        text-align: center;
+        border: 1px solid black;
+    }
+
+    td form {
+        display: inline-block;
+        margin: 0;
+      }
+</style>
+
+<form action="/event/create" method="get">
+    <button type="submit">Add Event</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Ime</td>
+            <td>Lokacija</td>
+            <td>Delete Action</td>
+            <td>Edit Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var value in Model)
+        {
+            <tr>
+                <td>@value.Id</td>
+                <td>@value.Ime</td>
+                <td>@value.Lokacija</td>
+                <td>
+                    <form action="/event/delete" method="post">
+                        <input type="hidden" name="Id" value="@value.Id" />
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/event/edit" method="get">
+                        <input type="hidden" name="Id" value="@value.Id" />
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red">@ViewBag.Error</p>
+}
+
+<form action="/event/edit" method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <label>Ime</label>
+    <br />
+    <input type="text" name="Ime" value="@Model.Ime" />
+
+    <br />
+
+    <label>Lokacija</label>
+    <br />
+    <input type="text" name="Lokacija" value="@Model.Lokacija" />
+
+    <br />
+
+    <button type="submit">Edit</button>
+</form>
